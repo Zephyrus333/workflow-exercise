@@ -17,6 +17,15 @@ public class booklist {
     public booklist(){
 
     }
+    public void addBook() {
+    	System.out.println("---新增图书---");
+    	System.out.println("请输入图书名称：");
+    	String Name = Scanner.next();
+    	int addid = List.size()+1;
+    	book b = new book(Name,addid);
+    	list.add(b);
+    	System.out.println("图书"+name+b.getInout());
+    }
 
 
 
@@ -26,16 +35,16 @@ public class booklist {
         Writer out;
         try {
             out = new FileWriter(file);
-            out.write("编号\t名称\t状态");
+            out.write("缂栧彿\t鍚嶇О\t鐘舵��");
             for(book b : list) {
                 out.write("\r\n");
-                out.write(b.getId()+"\t" + b.getName()+"\t" + b.getInout()+"\t 借阅人："+b.getLendName());
+                out.write(b.getId()+"\t" + b.getName()+"\t" + b.getInout()+"\t 鍊熼槄浜猴細"+b.getLendName());
             }
             out.flush();
             out.close();
         }catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("保存成功！");
+        System.out.println("淇濆瓨鎴愬姛锛�");
     }
 }
